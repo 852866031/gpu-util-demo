@@ -9,7 +9,7 @@ This repo is organized around several measurement layers:
 - **Nsight Systems** for CPU–GPU timeline structure
 - **Nsight Compute** for kernel-level efficiency and bottleneck analysis
 
-The repository currently contains the top-level directories `.vscode`, `DCGM`, `cpu_util`, `nsight_compute`, `nsight_systems`, and `nvml`.  [oai_citation:0‡GitHub](https://github.com/852866031/gpu-util-demo)
+The repository currently contains the top-level directories `.vscode`, `DCGM`, `cpu_util`, `nsight_compute`, `nsight_systems`, and `nvml`.
 
 ## Repository layout
 
@@ -32,14 +32,17 @@ Contains a two-GPU inference-pipeline example (`inf_sys.py`), NVML/DCGM runners,
 
 A minimal environment for the Python parts of this repo:
 
-```bash
+```
 conda create -n gpu-util-demo python=3.11 -y
 conda activate gpu-util-demo
 pip install torch matplotlib nvidia-ml-py
+```
 
 For directories that use custom CUDA kernels from Python, also install CuPy:
 
+```
 pip install cupy-cuda13x
+```
 
 If your system is on CUDA 12 instead of CUDA 13, replace cupy-cuda13x with cupy-cuda12x.
 
@@ -71,19 +74,25 @@ Examples
 
 Run the Nsight Systems inference example directly:
 
+```
 cd nsight_systems
 make run
+```
 
 Collect NVML and DCGM measurements for that example:
 
+```
 make nvml
 make dcgm
 make plot-all
+```
 
 Run the two-kernel Nsight Compute example:
 
+```
 cd ../nsight_compute
 make run
 make plot
 make ncu-gather
 make ncu-dense
+```
